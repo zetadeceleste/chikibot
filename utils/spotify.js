@@ -7,7 +7,7 @@ import {
   SPOTIFY_REFRESH_TOKEN,
   MESSAGE_ERROR,
   SPOTIFY_URL_TOKEN,
-} from '../constants'
+} from '../constants/index.js'
 
 const spotifyApi = new SpotifyWebApi({
   clientId: SPOTIFY_CLIENT_ID,

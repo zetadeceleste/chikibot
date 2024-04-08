@@ -1,7 +1,7 @@
-import { EMPANADAS } from '../constants'
+import { EMPANADA_LIST } from '../constants/index.js'
 
-export function getEmpanada() {
-  const randomIndex = Math.floor(Math.random() * EMPANADAS.length)
+export const getEmpanada = () => {
+  const randomIndex = Math.floor(Math.random() * EMPANADA_LIST.length)
 
-  return `Tenés cara de empanada ${EMPANADAS[randomIndex]}.`
+  return `Tenés cara de empanada ${EMPANADA_LIST[randomIndex]}.`
 }

@@ -1,5 +1,5 @@
-import { MESSAGE_NOT_FOUND, MESSAGE_ERROR } from '../constants'
-import { getLaNacionHoroscope } from '../utils/la-nacion'
+import { MESSAGE_NOT_FOUND, MESSAGE_ERROR } from '../constants/index.js'
+import { getLaNacionHoroscope } from '../utils/index.js'
 
 export async function getHoroscope(args) {
   const sign = args[0]

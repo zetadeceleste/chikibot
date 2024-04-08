@@ -1,9 +1,9 @@
-import { MESSAGE_ERROR } from '../constants'
+import { MESSAGE_ERROR } from '../constants/index.js'
 import {
   getSpotifyAccess,
   getSpotifyPlaylist,
   searchYoutubeSong,
-} from '../utils'
+} from '../utils/index.js'
 
 export async function play(args, message) {
   const playlistUrl = args[0]
@@ -39,4 +39,3 @@ export async function play(args, message) {
     return MESSAGE_ERROR
   }
 }
-s

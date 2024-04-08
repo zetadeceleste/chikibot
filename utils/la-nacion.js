@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 
-import { LA_NACION_URL, LA_NACION_CLASSNAME } from '../constants.js'
+import { LA_NACION_URL, LA_NACION_CLASSNAME } from '../constants/index.js'
 
 export async function getLaNacionHoroscope(sign) {
   const url = LA_NACION_URL + sign.toLowerCase()

@@ -21,12 +21,11 @@ export const MESSAGE_NOT_VALID = 'Comando no válido.'
 export const MESSAGE_READY = '¡Listo!'
 export const MESSAGE_WARN = 'Advertencia'
 
-export const COMMAND_LIST = {
-  EMPANADA: '!empanada',
-  HOROSCOPE: '!horoscopo',
-  PLAY: '!play',
-  PROBLEM: '!problem',
-}
+export const EMPANADA = '!empanada'
+export const HOROSCOPE = '!horoscopo'
+export const PLAY = '!play'
+export const PROBLEM = '!problema'
+
 export const EMPANADA_LIST = [
   'de carne cortada a cuchillo',
   'turca',

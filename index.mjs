@@ -1,13 +1,23 @@
 import { Client, GatewayIntentBits } from 'discord.js'
 
 import {
-  NOT_VALID_MESSAGE,
-  ERROR_MESSAGE,
-  WARN_MESSAGE,
-  READY_MESSAGE,
+  MESSAGE_ERROR,
+  MESSAGE_READY,
+  MESSAGE_WARN,
+  MESSAGE_NOT_VALID,
+  EMPANADA,
+  HOROSCOPE,
+  PLAY,
+  PROBLEM,
   DISCORD_BOT_TOKEN,
-} from './config.js'
-import { COMMAND_LIST } from './constants/index.js'
+} from './constants/index.js'
+
+import {
+  getEmpanada,
+  getHoroscope,
+  getProblem,
+  play,
+} from './commands/index.js'
 
 const client = new Client({
   intents: [
@@ -17,27 +27,31 @@ const client = new Client({
   ],
 })
 
-client.on('error', (error) => console.error(ERROR_MESSAGE, error))
-client.on('warn', (warn) => console.warn(WARN_MESSAGE, warn))
-client.once('ready', () => console.log(READY_MESSAGE))
+client.on('error', (error) => console.error(MESSAGE_ERROR, error))
+client.on('warn', (warn) => console.warn(MESSAGE_WARN, warn))
+client.once('ready', () => console.log(MESSAGE_READY))
 
 client.on('messageCreate', async (message) => {
   const args = message.content.split(' ')
   const command = args.shift().toLowerCase()
 
-  async function getCommand() {
+  async function getMessage() {
     switch (command) {
-      case COMMAND_LIST.EMPANADA:
-        return empanada()
-      case COMMAND_LIST.HOROSCOPE:
-        return horoscope(args)
-      case COMMAND_LIST.PLAY:
-        return play(args)
-      case COMMAND_LIST.PROBLEM:
-        return problem()
+      case EMPANADA:
+        return getEmpanada()
+      case HOROSCOPE:
+        return getHoroscope(args)
+      case PROBLEM:
+        return getProblem()
       default:
-        return NOT_VALID_MESSAGE
+        return MESSAGE_NOT_VALID
     }
+  }
+
+  if (command === PLAY) {
+    return play(args, message)
+  } else {
+    return message.channel.send(await getMessage())
   }
 })
 

@@ -10,7 +10,7 @@ import {
   YOUTUBE_API_URL,
   YOUTUBE_URL,
   MESSAGE_NOT_FOUND,
-} from '../constants'
+} from '../constants/index.js'
 
 export async function playYoutubeSong(voiceChannel, songUrl) {
   const player = createAudioPlayer()
