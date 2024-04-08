@@ -4,20 +4,10 @@ import {
   MESSAGE_ERROR,
   MESSAGE_READY,
   MESSAGE_WARN,
-  MESSAGE_NOT_VALID,
-  EMPANADA,
-  HOROSCOPE,
-  PLAY,
-  PROBLEM,
   DISCORD_BOT_TOKEN,
 } from './constants/index.js'
 
-import {
-  getEmpanada,
-  getHoroscope,
-  getProblem,
-  play,
-} from './commands/index.js'
+import { receiveCommand } from './commands/index.js'
 
 const client = new Client({
   intents: [
@@ -32,27 +22,11 @@ client.on('warn', (warn) => console.warn(MESSAGE_WARN, warn))
 client.once('ready', () => console.log(MESSAGE_READY))
 
 client.on('messageCreate', async (message) => {
-  const args = message.content.split(' ')
-  const command = args.shift().toLowerCase()
+  const msj = message.content.split(' ').toLowerCase()
+  const command = msj.shift()
+  const arg = msj[0]
 
-  async function getMessage() {
-    switch (command) {
-      case EMPANADA:
-        return getEmpanada()
-      case HOROSCOPE:
-        return getHoroscope(args)
-      case PROBLEM:
-        return getProblem()
-      default:
-        return MESSAGE_NOT_VALID
-    }
-  }
-
-  if (command === PLAY) {
-    return play(args, message)
-  } else {
-    return message.channel.send(await getMessage())
-  }
+  await receiveCommand(command, arg, message)
 })
 
 client.login(DISCORD_BOT_TOKEN)

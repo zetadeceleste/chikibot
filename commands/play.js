@@ -5,8 +5,7 @@ import {
   searchYoutubeSong,
 } from '../utils/index.js'
 
-export async function play(args, message) {
-  const playlistUrl = args[0]
+export async function play(playlistUrl, message) {
   const playlistId = playlistUrl.split('playlist/')[1].split('?')[0]
 
   if (args.length === 0) {
