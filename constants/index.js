@@ -4,7 +4,6 @@ dotenv.config()
 export const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN
 
 export const LA_NACION_URL = 'https://www.lanacion.com.ar/horoscopo/'
-export const LA_NACION_CLASSNAME = '.daily-horoscope-main .com-text.--twoxs'
 
 export const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
 export const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
@@ -15,7 +14,7 @@ export const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY
 export const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search'
 export const YOUTUBE_URL = 'https://www.youtube.com/watch?v='
 
-export const MESSAGE_ERROR = 'Algo salió mal'
+export const MESSAGE_ERROR = 'Algo salió mal.'
 export const MESSAGE_NOT_FOUND = 'No se encontraron resultados.'
 export const MESSAGE_NOT_VALID = 'Comando no válido.'
 export const MESSAGE_READY = '¡Listo!'

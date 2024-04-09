@@ -15,19 +15,24 @@ export async function receiveCommand(command, arg, message) {
   let msj = ''
 
   if (command === PLAY) {
-    return play(arg, message)
+    return await play(arg, message)
   }
 
   switch (command) {
     case EMPANADA:
       msj = getEmpanada()
+      break
     case HOROSCOPE:
-      msj = getHoroscope(arg)
+      msj = await getHoroscope(arg)
+      break
     case PROBLEM:
       msj = getProblem()
+      break
     default:
       msj = MESSAGE_NOT_VALID
+      break
   }
 
-  return message.channel.send(msj)
+  // return message.channel.send(msj)
+  console.log('msj', msj)
 }

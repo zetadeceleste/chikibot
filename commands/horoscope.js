@@ -9,7 +9,7 @@ export async function getHoroscope(sign) {
   try {
     const horoscope = await getLaNacionHoroscope(sign)
 
-    return `HOY ${sign.toUpperCase}:\n${horoscope}`
+    return `HOY ${sign.toUpperCase()}:\n${horoscope}`
   } catch (error) {
     console.error(MESSAGE_ERROR, error)
     return MESSAGE_NOT_FOUND

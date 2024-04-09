@@ -22,7 +22,7 @@ client.on('warn', (warn) => console.warn(MESSAGE_WARN, warn))
 client.once('ready', () => console.log(MESSAGE_READY))
 
 client.on('messageCreate', async (message) => {
-  const msj = message.content.split(' ').toLowerCase()
+  const msj = message.content.split(' ')
   const command = msj.shift()
   const arg = msj[0]
 
