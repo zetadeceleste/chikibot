@@ -17,7 +17,7 @@ export const YOUTUBE_URL = 'https://www.youtube.com/watch?v='
 export const MESSAGE_ERROR = 'Algo salió mal.'
 export const MESSAGE_NOT_FOUND = 'No se encontraron resultados.'
 export const MESSAGE_NOT_VALID = 'Comando no válido.'
-export const MESSAGE_READY = '¡Listo!'
+export const MESSAGE_READY = '¡Chikibot listo!'
 export const MESSAGE_WARN = 'Advertencia'
 
 export const EMPANADA = '!empanada'

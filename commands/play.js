@@ -3,18 +3,21 @@ import {
   getSpotifyAccess,
   getSpotifyPlaylist,
   searchYoutubeSong,
+  playYoutubeSong,
 } from '../utils/index.js'
 
 export async function play(playlistUrl, message) {
+  if (playlistUrl.length === 0) {
+    message.channel.send('Tenés que pasar una URL válida de Spotify.')
+  }
+
+  if (!message.member.voice.channel) {
+    message.channel.send(
+      'Tenés que estar en un canal de voz para que funcione.'
+    )
+  }
+
   const playlistId = playlistUrl.split('playlist/')[1].split('?')[0]
-
-  if (args.length === 0) {
-    return 'Proporciona una URL válida de playlist de Spotify.'
-  }
-
-  if (!message.channel) {
-    return 'Tenes que estar en un canal de voz para que funcione.'
-  }
 
   try {
     await getSpotifyAccess()
@@ -26,15 +29,15 @@ export async function play(playlistUrl, message) {
       const songName = track.track.name
       const artist = track.track.artists[0].name
       const query = `${songName} ${artist}`
-      const youtubeURL = await searchYoutubeSong(query)
+      const songUrl = await searchYoutubeSong(query)
 
-      if (youtubeURL) {
-        await playSong(message.channel, youtubeURL)
+      if (songUrl) {
+        await playYoutubeSong(message, songUrl, songName, artist)
         break
       }
     }
   } catch (error) {
     console.error(MESSAGE_ERROR, error)
-    return MESSAGE_ERROR
+    message.channel.send('Hubo un error al intentar reproducir la playlist.')
   }
 }

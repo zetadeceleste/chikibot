@@ -12,11 +12,13 @@ import {
 } from '../constants/index.js'
 
 export async function receiveCommand(command, arg, message) {
-  let msj = ''
+  if (message.author.bot || !message.content.startsWith('!')) return null
 
   if (command === PLAY) {
     return await play(arg, message)
   }
+
+  let msj = ''
 
   switch (command) {
     case EMPANADA:
