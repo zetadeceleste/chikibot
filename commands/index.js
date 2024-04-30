@@ -35,6 +35,5 @@ export async function receiveCommand(command, arg, message) {
       break
   }
 
-  // return message.channel.send(msj)
-  console.log('msj', msj)
+  return message.channel.send(msj)
 }

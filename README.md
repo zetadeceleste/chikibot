@@ -1,2 +1,3 @@
 # chikibot
-An experimental bot for use with my friends on Discord
+
+An experimental bot to use with my friends on Discord.

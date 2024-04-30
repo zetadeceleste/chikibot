@@ -58,3 +58,18 @@ export const EMPANADA_LIST = [
   'de ananá',
   'de que te gusta comerte la empanada ;-)',
 ]
+
+export const HOROSCOPE_LIST = [
+  'aries',
+  'tauro',
+  'geminis',
+  'cancer',
+  'leo',
+  'virgo',
+  'libra',
+  'escorpio',
+  'sagitario',
+  'capricornio',
+  'acuario',
+  'piscis',
+]

@@ -3,16 +3,10 @@ import {
   createAudioPlayer,
   createAudioResource,
   StreamType,
-  entersState,
-  VoiceConnectionStatus,
 } from '@discordjs/voice'
 
 import fetch from 'node-fetch'
-// import ytdl from 'ytdl-core-discord'
 import ytdl from 'ytdl-core'
-import play from 'play-dl'
-import opus from '@discordjs/opus'
-import ffmpeg from 'ffmpeg-static'
 
 import {
   YOUTUBE_API_KEY,

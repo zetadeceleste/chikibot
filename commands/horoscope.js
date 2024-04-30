@@ -1,9 +1,17 @@
-import { MESSAGE_NOT_FOUND, MESSAGE_ERROR } from '../constants/index.js'
+import {
+  MESSAGE_NOT_FOUND,
+  MESSAGE_ERROR,
+  HOROSCOPE_LIST,
+} from '../constants/index.js'
 import { getLaNacionHoroscope } from '../utils/index.js'
 
 export async function getHoroscope(sign) {
   if (!sign) {
     return 'Debes especificar un signo del zodiaco. Ejemplo: `!horoscopo piscis`'
+  }
+
+  if (HOROSCOPE_LIST.indexOf(sign) === -1) {
+    return 'Signo del zodiaco no válido.'
   }
 
   try {

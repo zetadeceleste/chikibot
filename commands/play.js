@@ -8,11 +8,13 @@ import {
 
 export async function play(playlistUrl, message) {
   if (playlistUrl.length === 0) {
-    message.channel.send('Tenés que pasar una URL válida de Spotify.')
+    return message.channel.send('Tenés que pasar una URL válida de Spotify.')
   }
 
-  if (!message.member.voice.channel) {
-    message.channel.send(
+  const voiceChannel = message.member.voice.channel
+
+  if (!voiceChannel) {
+    return message.channel.send(
       'Tenés que estar en un canal de voz para que funcione.'
     )
   }
