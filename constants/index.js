@@ -3,7 +3,8 @@ dotenv.config()
 
 export const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN
 
-export const LA_NACION_URL = 'https://www.lanacion.com.ar/horoscopo/'
+export const HOROSCOPE_URL = 'https://www.lanacion.com.ar/horoscopo/'
+export const TAROT_API_URL = 'https://tarot-api-es.vercel.app/api/v1/'
 
 export const MESSAGE_ERROR = 'Algo salió mal.'
 export const MESSAGE_NOT_FOUND = 'No se encontraron resultados.'
@@ -13,6 +14,7 @@ export const MESSAGE_WARN = 'Advertencia'
 
 export const EMPANADA = '!empanada'
 export const HOROSCOPE = '!horoscopo'
+export const TAROT = '!tarot'
 export const PROBLEM = '!problema'
 
 export const EMPANADA_LIST = [

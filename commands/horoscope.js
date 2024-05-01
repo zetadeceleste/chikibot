@@ -1,9 +1,11 @@
+import puppeteer from 'puppeteer'
+
 import {
   MESSAGE_NOT_FOUND,
   MESSAGE_ERROR,
   HOROSCOPE_LIST,
+  HOROSCOPE_URL,
 } from '../constants/index.js'
-import { getLaNacionHoroscope } from '../utils/index.js'
 
 export async function getHoroscope(sign) {
   if (!sign) {
@@ -15,7 +17,25 @@ export async function getHoroscope(sign) {
   }
 
   try {
-    const horoscope = await getLaNacionHoroscope(sign)
+    const url = HOROSCOPE_URL + sign.toLowerCase()
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+
+    await page.goto(url, { waitUntil: 'networkidle2' })
+
+    const horoscope = await page.evaluate(() => {
+      const secciones = Array.from(
+        document.querySelectorAll('.daily-horoscope-main .com-text.--twoxs')
+      )
+
+      return secciones
+        .map((seccion) => {
+          return seccion.innerText.trim()
+        })
+        .join('\n')
+    })
+
+    await browser.close()
 
     return `HOY ${sign.toUpperCase()}:\n${horoscope}`
   } catch (error) {
