@@ -5,15 +5,6 @@ export const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN
 
 export const LA_NACION_URL = 'https://www.lanacion.com.ar/horoscopo/'
 
-export const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
-export const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
-export const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN
-export const SPOTIFY_URL_TOKEN = 'https://accounts.spotify.com/api/token'
-
-export const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY
-export const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search'
-export const YOUTUBE_URL = 'https://www.youtube.com/watch?v='
-
 export const MESSAGE_ERROR = 'Algo salió mal.'
 export const MESSAGE_NOT_FOUND = 'No se encontraron resultados.'
 export const MESSAGE_NOT_VALID = 'Comando no válido.'
@@ -22,7 +13,6 @@ export const MESSAGE_WARN = 'Advertencia'
 
 export const EMPANADA = '!empanada'
 export const HOROSCOPE = '!horoscopo'
-export const PLAY = '!play'
 export const PROBLEM = '!problema'
 
 export const EMPANADA_LIST = [
