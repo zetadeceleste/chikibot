@@ -18,16 +18,16 @@ export async function receiveCommand(command, arg, message) {
 
   switch (command) {
     case EMPANADA:
-      msj = getEmpanada()
+      msj = handleCommandWithNoArgs(command, arg, getEmpanada)
       break
     case HOROSCOPE:
-      msj = await getHoroscope(arg)
+      msj = await handleCommandWithArg(command, arg, getHoroscope)
       break
     case TAROT:
-      msj = getTarot()
+      msj = await handleCommandWithNoArgs(command, arg, getTarot)
       break
     case PROBLEM:
-      msj = getProblem()
+      msj = handleCommandWithNoArgs(command, arg, getProblem)
       break
     default:
       msj = MESSAGE_NOT_VALID
@@ -35,4 +35,20 @@ export async function receiveCommand(command, arg, message) {
   }
 
   return message.channel.send(msj)
+}
+
+async function handleCommandWithNoArgs(command, arg, action) {
+  if (arg) {
+    return `El comando ${command} no acepta argumentos adicionales.`
+  } else {
+    return await action()
+  }
+}
+
+async function handleCommandWithArg(command, arg, action) {
+  if (!arg) {
+    return `Debes proporcionar un argumento para ${command}.`
+  } else {
+    return await action(arg)
+  }
 }

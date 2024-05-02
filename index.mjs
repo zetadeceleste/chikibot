@@ -26,7 +26,11 @@ client.on('messageCreate', async (message) => {
   const command = msj.shift()
   const arg = msj[0]
 
-  await receiveCommand(command, arg, message)
+  try {
+    await receiveCommand(command, arg, message)
+  } catch (error) {
+    console.error(MESSAGE_ERROR, error)
+  }
 })
 
 client.login(DISCORD_BOT_TOKEN)

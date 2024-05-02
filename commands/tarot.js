@@ -6,17 +6,14 @@ import {
 
 export async function getTarot() {
   try {
-    const url = `${TAROT_API_URL}random?n=3`
+    const url = `${TAROT_API_URL}random?n=1`
     const response = await fetch(url)
     const data = await response.json()
 
+    const card = data.cards[0]
     return (
-      'TUS 3 CARTAS DE HOY:' +
-      data.cards
-        .map((card) => {
-          return `${card.name} - ${card.meaning_up}\nTrabajo: ${card.trabajo}\nAmor: ${card.amor}\nFinanzas: ${card.finanzas}\nSalud: ${card.salud}`
-        })
-        .join('\n')
+      'TU CARTA DE HOY:\n' +
+      `${card.name}\n\nAmor:\n${card.amor}\n\nFinanzas:\n${card.finanzas}\n\nSalud:\n${card.salud}\n\n`
     )
   } catch (error) {
     console.error(MESSAGE_ERROR, error)
