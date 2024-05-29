@@ -2,12 +2,14 @@ import { getEmpanada } from './empanada.js'
 import { getHoroscope } from './horoscope.js'
 import { getTarot } from './tarot.js'
 import { getProblem } from './problem.js'
+import { getMendozaWeather } from './weather.js'
 
 import {
   EMPANADA,
   HOROSCOPE,
   TAROT,
   PROBLEM,
+  WEATHER,
   MESSAGE_NOT_VALID,
 } from '../constants/index.js'
 
@@ -28,6 +30,9 @@ export async function receiveCommand(command, arg, message) {
       break
     case PROBLEM:
       msj = handleCommandWithNoArgs(command, arg, getProblem)
+      break
+    case WEATHER:
+      msj = await handleCommandWithNoArgs(command, arg, getMendozaWeather)
       break
     default:
       msj = MESSAGE_NOT_VALID

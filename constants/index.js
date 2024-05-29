@@ -5,6 +5,7 @@ export const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN
 
 export const HOROSCOPE_URL = 'https://www.lanacion.com.ar/horoscopo/'
 export const TAROT_API_URL = 'https://tarot-api-es.vercel.app/api/v1/'
+export const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/'
 
 export const MESSAGE_ERROR = 'Algo salió mal.'
 export const MESSAGE_NOT_FOUND = 'No se encontraron resultados.'
@@ -16,6 +17,7 @@ export const EMPANADA = '!empanada'
 export const HOROSCOPE = '!horoscopo'
 export const TAROT = '!tarot'
 export const PROBLEM = '!problema'
+export const WEATHER = '!clima'
 
 export const EMPANADA_LIST = [
   'de carne cortada a cuchillo',
