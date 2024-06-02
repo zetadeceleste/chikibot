@@ -38,7 +38,7 @@ export async function getMendozaWeather() {
 
     const comment = getComment(Math.floor(main?.temp))
 
-    return `${textResponse}\n(${comment})`
+    return `${textResponse}\n\n(${comment})`
   } catch (error) {
     console.error(MESSAGE_ERROR, error)
     return MESSAGE_NOT_FOUND
