@@ -6,17 +6,17 @@ import {
 
 const getComment = (temp) => {
   if (temp <= 5) {
-    return 'Ni salgas... quedate haciendo cucharita cucharón con la almohada.'
+    return 'Ni salgas... quedate haciendo cucharita cucharón con la almohada'
   } else if (temp >= 5 && temp <= 12) {
-    return 'Está para mate y sopaipillasss.'
+    return 'Está para mate y sopaipillasss'
   } else if (temp >= 12 && temp <= 18) {
     return 'Hace chiflete...'
   } else if (temp >= 18 && temp <= 24) {
-    return 'Está para un abriguito tranqui.'
+    return 'Está para un abriguito tranqui'
   } else if (temp >= 24 && temp <= 30) {
     return 'Lindo día ;D'
   } else if (temp >= 30 && temp <= 35) {
-    return 'Está para unas chelitas.'
+    return 'Está para unas chelitas'
   } else {
     return 'Está para asolearse el ano c*c'
   }
